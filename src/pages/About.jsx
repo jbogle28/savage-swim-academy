@@ -5,22 +5,26 @@ export default function About() {
     {
       name: "Coach Savage",
       role: "Head Sprint & Technique Coach",
-      bio: "Competitive background with over 10 years experience developing swimmers and building strong technical foundations."
+      bio: "Competitive background with over 10 years experience developing swimmers and building strong technical foundations.",
+      image: null
     },
     {
       name: "Coach Nats",
       role: "Swimming Coach",
-      bio: "Dedicated to helping swimmers develop confidence, improve technique, and reach their individual goals in the water."
+      bio: "Dedicated to helping swimmers develop confidence, improve technique, and reach their individual goals in the water.",
+      image: null
     },
     {
       name: "Coach Jada",
       role: "Swimming Coach",
-      bio: "Focused on creating a positive learning environment while helping swimmers develop strong fundamentals and water confidence."
+      bio: "Focused on creating a positive learning environment while helping swimmers develop strong fundamentals and water confidence.",
+      image: "/pictures/jada.png"
     },
     {
       name: "Ariana Ewart",
       role: "Media & Content",
-      bio: "Captures the energy, progress, and memorable moments of Savage Swim Academy through photography and media."
+      bio: "Captures the energy, progress, and memorable moments of Savage Swim Academy through photography and media.",
+      image: "/pictures/arriana.png"
     }
   ];
 
@@ -77,9 +81,7 @@ export default function About() {
 
           <div className="grid md:grid-cols-5">
 
-            {/* =====================================================
-                FOUNDER PROFILE
-            ===================================================== */}
+            {/* FOUNDER PROFILE */}
             <div className="md:col-span-2 bg-slate-100 flex flex-col items-center justify-center px-5 py-8 sm:px-8 sm:py-10 md:p-10 lg:p-12">
 
               <div className="text-center w-full">
@@ -113,9 +115,7 @@ export default function About() {
             </div>
 
 
-            {/* =====================================================
-                CEO STORY
-            ===================================================== */}
+            {/* CEO STORY */}
             <div className="md:col-span-3 p-5 sm:p-7 md:p-10 lg:p-12">
 
               <div className="space-y-4 md:space-y-5">
@@ -204,9 +204,7 @@ export default function About() {
 
           <div className="grid md:grid-cols-2 items-stretch">
 
-            {/* =====================================================
-                TEXT
-            ===================================================== */}
+            {/* TEXT */}
             <div className="p-6 sm:p-8 md:p-10 lg:p-14 flex flex-col justify-center order-1">
 
               <span className="text-cyan-400 font-bold uppercase tracking-wider text-[10px] sm:text-xs">
@@ -257,9 +255,7 @@ export default function About() {
             </div>
 
 
-            {/* =====================================================
-                VIDEO
-            ===================================================== */}
+            {/* VIDEO */}
             <div className="order-2 h-[260px] sm:h-[340px] md:h-auto min-h-[400px] bg-slate-950">
 
               <video
@@ -313,7 +309,6 @@ export default function About() {
           {/* Christmas Media Gallery */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5 mb-8">
 
-            {/* Image 1 */}
             <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-100">
               <img
                 src="/pictures/christmas-giftbags.png"
@@ -323,7 +318,6 @@ export default function About() {
               />
             </div>
 
-            {/* Image 2 */}
             <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-100">
               <img
                 src="/pictures/kids-treat-2.png"
@@ -333,7 +327,6 @@ export default function About() {
               />
             </div>
 
-            {/* Image 3 */}
             <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-100">
               <img
                 src="/pictures/kids-twister.png"
@@ -343,7 +336,6 @@ export default function About() {
               />
             </div>
 
-            {/* Image 4 */}
             <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-100">
               <img
                 src="/pictures/gift-bags.png"
@@ -353,7 +345,6 @@ export default function About() {
               />
             </div>
 
-            {/* Image 5 */}
             <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-100">
               <img
                 src="/pictures/kids-treat.png"
@@ -363,7 +354,6 @@ export default function About() {
               />
             </div>
 
-            {/* Video 1 */}
             <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-900">
               <video
                 autoPlay
@@ -379,7 +369,6 @@ export default function About() {
               </video>
             </div>
 
-            {/* Video 2 */}
             <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-900">
               <video
                 autoPlay
@@ -395,7 +384,6 @@ export default function About() {
               </video>
             </div>
 
-            {/* Video 3 */}
             <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-900">
               <video
                 autoPlay
@@ -462,12 +450,24 @@ export default function About() {
               className="bg-white rounded-xl md:rounded-2xl p-3 sm:p-5 md:p-6 shadow-md border border-slate-200"
             >
 
-              <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-sky-100 rounded-full mb-3 md:mb-4 flex items-center justify-center font-bold text-sky-600 text-base sm:text-lg md:text-xl">
-                {member.name
-                  .split(" ")
-                  .map((word) => word.charAt(0))
-                  .join("")}
-              </div>
+              {/* Staff Photo / Initials */}
+              {member.image ? (
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden mb-3 md:mb-4 border-2 border-sky-100 shadow-sm bg-slate-100">
+                  <img
+                    src={member.image}
+                    alt={`${member.name}, ${member.role} at Savage Swim Academy 876`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ) : (
+                <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-sky-100 rounded-full mb-3 md:mb-4 flex items-center justify-center font-bold text-sky-600 text-base sm:text-lg md:text-xl">
+                  {member.name
+                    .split(" ")
+                    .map((word) => word.charAt(0))
+                    .join("")}
+                </div>
+              )}
 
               <h3 className="text-sm sm:text-lg md:text-xl font-bold text-slate-900 leading-tight">
                 {member.name}
