@@ -6,13 +6,13 @@ export default function About() {
       name: "Coach Savage",
       role: "Head Sprint & Technique Coach",
       bio: "Competitive background with over 10 years experience developing swimmers and building strong technical foundations.",
-      image: null
+      image: "/pictures/ceo2.png"
     },
     {
       name: "Coach Nats",
       role: "Swimming Coach",
       bio: "Dedicated to helping swimmers develop confidence, improve technique, and reach their individual goals in the water.",
-      image: null
+      image: "/pictures/nats.png"
     },
     {
       name: "Coach Jada",
@@ -21,7 +21,7 @@ export default function About() {
       image: "/pictures/jada.png"
     },
     {
-      name: "Ariana Ewart",
+      name: "Arianna Ewart",
       role: "Media & Content",
       bio: "Captures the energy, progress, and memorable moments of Savage Swim Academy through photography and media.",
       image: "/pictures/arriana.png"
@@ -33,6 +33,23 @@ export default function About() {
     "Proven modern technique training focused on safety and hydrodynamic efficiency.",
     "Flexible Monday through Sunday schedule (9:00 AM – 5:00 PM) to fit busy routines.",
     "Professional swimming instruction designed for swimmers of different ages and ability levels."
+  ];
+
+  const experience = [
+    {
+      title: "Lifeguard Instructor",
+      organization: "Continental Pools",
+      period: "2023 – Present",
+      description:
+        "Shaneice has served as a Lifeguard Instructor with Continental Pools, delivering lifeguard training and instruction both overseas and in Jamaica. Her work supports the development of essential lifesaving knowledge, rescue skills, and water safety practices."
+    },
+    {
+      title: "Safety Auditor",
+      organization: "Aquatic Safety & Compliance",
+      period: "2025 – Present",
+      description:
+        "In her role as a Safety Auditor, Shaneice conducts safety inspections, assesses compliance with applicable safety standards, identifies potential hazards, and promotes safe practices within aquatic facilities."
+    }
   ];
 
   return (
@@ -93,9 +110,10 @@ export default function About() {
                 {/* Circular CEO Image */}
                 <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto rounded-full overflow-hidden border-[6px] md:border-8 border-white shadow-xl bg-slate-200">
                   <img
-                    src="/pictures/ceo.png"
+                    src="/pictures/ceo1.png"
                     alt="Shaneice Savage, Founder and CEO of Savage Swim Academy 876 Ltd"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
 
@@ -115,7 +133,7 @@ export default function About() {
             </div>
 
 
-            {/* CEO STORY */}
+            {/* CEO STORY & PROFESSIONAL EXPERIENCE */}
             <div className="md:col-span-3 p-5 sm:p-7 md:p-10 lg:p-12">
 
               <div className="space-y-4 md:space-y-5">
@@ -186,6 +204,100 @@ export default function About() {
                   2017, Shaneice continues to make an impact—one swimmer at a
                   time."
                 </p>
+              </div>
+
+              {/* PROFESSIONAL EXPERIENCE */}
+              <div className="mt-8 md:mt-10">
+
+                <div className="mb-5">
+                  <span className="text-sky-600 font-bold uppercase tracking-wider text-[10px] sm:text-xs">
+                    Professional Background
+                  </span>
+
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mt-2">
+                    Professional Experience
+                  </h3>
+
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-2">
+                    Experience in lifeguard instruction and aquatic safety
+                    strengthens Shaneice's commitment to safe, professional
+                    swimming education.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+
+                  {experience.map((item, index) => (
+                    <div
+                      key={item.title}
+                      className="relative bg-white border border-slate-200 rounded-xl p-4 sm:p-5 shadow-sm"
+                    >
+                      <div className="flex items-start gap-3 sm:gap-4">
+
+                        <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center">
+                          {index === 0 ? (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="1.8"
+                              className="w-5 h-5 sm:w-6 sm:h-6"
+                              aria-hidden="true"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M12 3v18m-7-7 7 7 7-7M5 7l7-4 7 4"
+                              />
+                            </svg>
+                          ) : (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="1.8"
+                              className="w-5 h-5 sm:w-6 sm:h-6"
+                              aria-hidden="true"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M9 12.75 11.25 15 15 9.75M12 3l7 3v5c0 4.4-2.9 7.5-7 10-4.1-2.5-7-5.6-7-10V6l7-3Z"
+                              />
+                            </svg>
+                          )}
+                        </div>
+
+                        <div className="min-w-0 flex-1">
+
+                          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                            <div>
+                              <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+                                {item.title}
+                              </h4>
+
+                              <p className="text-sky-700 text-xs sm:text-sm font-semibold mt-1">
+                                {item.organization}
+                              </p>
+                            </div>
+
+                            <span className="self-start shrink-0 inline-flex bg-slate-100 text-slate-600 text-[10px] sm:text-xs font-semibold px-2.5 py-1 rounded-full">
+                              {item.period}
+                            </span>
+                          </div>
+
+                          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-3">
+                            {item.description}
+                          </p>
+
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+
+                </div>
               </div>
 
             </div>
